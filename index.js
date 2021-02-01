@@ -241,7 +241,7 @@ while (count > 0) {
   if (count == 1){
    word = "bottle";
   } 
-  console.log(`${count} ${word} of soda on the wall, ${count} ${word} of soda, take one down, pass it around, ${count - 1} ${word} of soda on the wall.`);
+  console.log(`${count} ${word} of soda on the wall, ${count} ${word} of soda, take one down pass it around, ${count - 1} ${word} of soda on the wall.`);
   count -= 1;
     if (count > 0){ 
       if (count === 1){
