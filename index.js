@@ -18,8 +18,10 @@ Do the following:
    HINT: no function required
 */
 
-
-
+const votingAge = 18;
+if(votingAge >= 18) {
+  console.log(true);
+}
 /*
 Task 1b - Values
 
@@ -30,11 +32,12 @@ Do the following:
 
    HINT: no function required
 */
-
-
-
-
-
+let isBig = false;
+const number = 901;
+if(number > 900) {
+  isBig = true;
+}
+console.log(isBig);
 /*
 Task 1c - Convert Strings to Numbers
 
@@ -45,10 +48,9 @@ Do the following:
 
    HINT: look up the Number method
 */
-
-
-
-
+const x = "1999";
+const n = Number(x);
+console.log(n);
 /*
 Task 1d - Multiply
  
@@ -57,12 +59,11 @@ Do the following:
    2. Receive the numbers in the parameters: a and b
    3. Multiply a and b and return the answer
 */
+console.log(multiply(5,2));
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
+function multiply(a,b){
+    return a*b;
   }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -73,12 +74,11 @@ Do the following:
    2. Use the received value to calculate the age in dog years (1 human year is equal to 7 dog years)
    3. Return the newly calculated age
 */
+console.log(dogYears(7));
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+function dogYears(humanYears){
+  return humanYears * 7;
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -92,7 +92,6 @@ Use the hungryDog function and feeding requirements below to do the following:
   REMEMBER: This program should handle correctly adult AND puppy ages and weights
   
   Feeding Requirements:
-
   Adult Dogs 1 year and older 
      up to 5 lbs - 5% of their body weight
      6 - 10 lbs - 4% of their body weight 
@@ -106,15 +105,37 @@ Use the hungryDog function and feeding requirements below to do the following:
     
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
+console.log(hungryDog(15,1));
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
-  }
-
-
-
-/*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
-
+function hungryDog(weight,age){
+  let dogFood = 0;
+if(age <= 0.33) {
+  dogFood = weight * 0.1;
+}
+else if(age <= .58) {
+  dogFood = weight * 0.05;
+}
+else if(age < 1) {
+  dogFood = weight * 0.04;
+}
+else {
+  dogFood = weight * age;
+}
+if(age >= 1 && weight <= 5){
+  dogFood = weight * .05;
+}
+else if(age >= 1 && weight <= 10){
+  dogFood = weight * .04;
+}
+else if(age >=1 && weight <= 15){
+  dogFood = weight * .03;
+}
+else if(age >=1 && weight > 15){
+  dogFood = weight * .02;
+}
+return dogFood;
+}
+  /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 // Rock, Paper, Scissors - Let's play against the computer!
 /*
 Create a global variable that randomly generates the computer's choice
@@ -132,13 +153,51 @@ Use the game function below to do the following:
   RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie
   
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
-*/
-
-function game(user, computer){
-    /*add your code here*/
+*/      
+const randomNumber = Math.random();
+let computerChoice = '';
+if(randomNumber < 0.34) {
+	computerChoice = 'rock';
 }
+else if(randomNumber < 0.67) {
+  computerChoice = 'paper';
+}
+else {
+  computerChoice = 'scissors';
+}
+const result = game('rock', computerChoice);
+function game(user, computer){
+    const win = "you win!";
+    const lose = "you lose!";
+    const tie = "it's a tie";
   
+  	if (user === computer) {
+    	return tie;
+    }
   
+  	if (user === 'paper') {
+    	if (computer === 'rock') {
+        	return win;
+        } else {
+          return lose;
+        }
+    }
+  
+  	if (user === 'scissors') {
+    	if (computer === 'paper') {
+        	return win;          
+        } else {
+        	return lose;
+    }
+  }  
+	  if (user === 'rock') {
+    	if (computer === 'scissors') {
+        	return win;
+        } else {
+        	return lose;
+      	}
+    }
+}
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -150,13 +209,10 @@ Using the miles function below do the following:
   2. Convert the number of kiolmeters received to miles
   3. Return the number of miles
 */
-
-function miles(/*add your code here*/){
-    /*add your code here*/
+console.log(miles(10));
+function miles(km){
+    return km * 0.621371;
   }
-
-
-
 //Task 5b - Feet to CM
 /*
 Using the feet function below do the following:
@@ -164,13 +220,10 @@ Using the feet function below do the following:
   2. Convert the number of cm to feet
   3. Return number of feet
 */
-
-function feet(/*add your code here*/){
-    /*add your code here*/
+console.log(feet(100));
+function feet(cm){
+    return cm / 30.48;
   }
- 
-
-
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 // Let's Sing 99 Bottles of Soda on the Wall!
@@ -180,10 +233,26 @@ Using the annoyingSong function below do the following:
   2. At each invocation, it should RETURN this string (note: the tests are expecting the same string as below):
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
+annoyingSong(10);
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+function annoyingSong(count){
+let word = "bottles";
+while (count > 0) {
+  if (count == 1){
+   word = "bottle";
+  } 
+  console.log(`${count} ${word} of soda on the wall, ${count} ${word} of soda, take one down, pass it around, ${count - 1} ${word} of soda on the wall.`);
+  count -= 1;
+    if (count > 0){ 
+      if (count === 1){
+       word = "bottle";
+      } 
+    }
+    else {
+      word = "bottles"; 
+    }  
   }
+}
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -200,12 +269,29 @@ Using the grade function below do the following:
    60-69 should return 'you got a D'
    below should return 'you got an F'
 */
-  
-function grade(/*Your Code here */){
-  /*Your Code here */
+console.log(grade(98));
+function grade(score){
+  const gradeA = 'you got an A';
+  const gradeB = 'you got a B';
+  const gradeC = 'you got a C';
+  const gradeD = 'you got a D';
+  const gradeF = 'you got an F';
+  if (score >= 90){
+    return gradeA;
   }
-  
-  
+  else if (score >= 80){
+    return gradeB;
+  }
+  else if (score >= 70){
+    return gradeC;
+  }
+  else if (score >= 60){
+    return gradeD;
+  }
+  else {
+    return gradeF;
+  }
+  }
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
 
